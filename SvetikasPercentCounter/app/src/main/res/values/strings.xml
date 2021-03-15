@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">SvetikasPercentCounter</string>
+    <string name="percent_counter">Percent Counter</string>
+    <string name="paveikslas">paveikslas</string>
+    <string name="enter_amount">Enter amount</string>
+    <string name="tip">Tip</string>
+    <string name="total">Total</string>
+    <string name="result">Result</string>
+    <string name="kestutis_svetikas">Kestutis Svetikas</string>
+    <string name="dezute">dezute</string>
+    <string name="percentValue">0%</string>
+    <string name="enter">Enter amount</string>
+</resources>
