@@ -11,4 +11,5 @@
     <color name="text_blue">#00264d</color>
     <color name="text_background">#e6f2ff</color>
     <color name="cursor">#990000</color>
+    <color name="hint">#a6a6a6</color>
 </resources>

@@ -34,11 +34,26 @@ public class MainActivity extends AppCompatActivity {
 
         result.setGravity(Gravity.CENTER_VERTICAL | Gravity.CENTER_HORIZONTAL);
 
+
+
         seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
 
             @Override
             public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
+
+
                 progress.setText(i + "%");
+
+                String field = editText.getText().toString();
+
+                if (!(field.equals(""))) {
+                    double value = Double.parseDouble(field);
+
+                    int seekBarValue = seekBar.getProgress();
+
+                    TextView[] findView = {tip, total, result};
+                    Counter.allResults(seekBarValue, value, field, findView);
+                }
             }
 
             @Override
@@ -59,23 +74,15 @@ public class MainActivity extends AppCompatActivity {
                 if ((event != null && (event.getKeyCode() == KeyEvent.KEYCODE_ENTER)) || (actionId == EditorInfo.IME_ACTION_DONE)) {
 
                     String field = editText.getText().toString();
-                    double value = Double.parseDouble(field);
 
-                    int seekBarValue = seekBar.getProgress();
+                    if (!(field.equals(""))) {
+                        double value = Double.parseDouble(field);
+                        int seekBarValue = seekBar.getProgress();
 
-                    if (!"".equals(field) && value > 0){
+                        TextView [] findView = {tip, total, result};
 
-                        double tipValue = Counter.tip(value, seekBarValue);
-                        double totalValue = (value - tipValue);
-
-                        tip.setText(String.valueOf(tipValue));
-                        total.setText(String.valueOf(totalValue));
-
-                        result.setGravity(Gravity.START | Gravity.TOP);
-                        result.setText(Counter.result(field, tipValue, totalValue));
-
+                        Counter.allResults(seekBarValue, value, field, findView);
                     }else {
-                        editText.setText("");
                         tip.setText("");
                         total.setText("");
                         result.setText("");
